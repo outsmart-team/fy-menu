@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <fy-menu>
-      <!-- submenu对应两部分，一部分是标题，一部分是点击标题所展开的内容 -->
+    <Menu :data="data"></Menu>
+    <!-- <fy-menu>
+      submenu对应两部分，一部分是标题，一部分是点击标题所展开的内容
       <fy-submenu>
         <template slot="title">导航一</template>
         <fy-menu-item>选项1-1</fy-menu-item>
@@ -9,23 +10,35 @@
       </fy-submenu>
       <fy-menu-item>导航二</fy-menu-item>
       <fy-menu-item>导航三</fy-menu-item>
-    </fy-menu>
-    <router-view/>
+    </fy-menu>-->
+    <router-view />
   </div>
 </template>
 <script>
-import fyMenu from './components/fy-menu';
-import fyMenuItem from './components/fy-menu-item';
-import fySubmenu from './components/fy-submenu';
+import Menu from "./components/fy-menu";
 
 export default {
-  components:{
-    fyMenu,
-    fyMenuItem,
-    fySubmenu
+  components: {
+    Menu
+  },
+  data() {
+    return {
+      data: [
+        {
+          name: "导航一",
+          id: 1,
+          children: [
+            { name: "选项1-1", id: 1.1 },
+            { name: "选项1-2", id: 1.2 },
+            { name: "选项1-3", id: 1.3 }
+          ]
+        },
+        { name: "导航二", id: 2 },
+        { name: "导航三", id: 3 }
+      ]
+    };
   }
-  
-}
+};
 </script>
 <style lang="scss">
 #app {
