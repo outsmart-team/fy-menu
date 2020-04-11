@@ -1,8 +1,8 @@
 <template>
   <fy-menu>
     <template v-for="menu in data">
-      <fy-resub v-if="menu.children" :key="menu.id" :data="menu"></fy-resub>
-      <fy-menu-item v-else :key="menu.id">{{menu.name}}</fy-menu-item>
+      <fy-resub v-if="menu.children" :key="menu.name" :data="menu"></fy-resub>
+      <fy-menu-item v-else-if="!menu.meta.hidden" :key="menu.name" :pathData="menu">{{menu.meta.title}}</fy-menu-item>
     </template>
   </fy-menu>
 </template>

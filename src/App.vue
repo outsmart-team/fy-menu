@@ -1,17 +1,9 @@
 <template>
   <div id="app">
-    <Menu :data="data"></Menu>
-    <!-- <fy-menu>
-      submenu对应两部分，一部分是标题，一部分是点击标题所展开的内容
-      <fy-submenu>
-        <template slot="title">导航一</template>
-        <fy-menu-item>选项1-1</fy-menu-item>
-        <fy-menu-item>选项1-2</fy-menu-item>
-      </fy-submenu>
-      <fy-menu-item>导航二</fy-menu-item>
-      <fy-menu-item>导航三</fy-menu-item>
-    </fy-menu>-->
-    <router-view />
+    <Menu :data="$router.options.routes"></Menu>
+    <div class="view">
+      <router-view />
+    </div>
   </div>
 </template>
 <script>
@@ -21,31 +13,32 @@ export default {
   components: {
     Menu
   },
-  data() {
-    return {
-      data: [
-        {
-          name: "导航一",
-          id: 1,
-          children: [
-            { name: "选项1-1", id: 1.1 },
-            { name: "选项1-2", id: 1.2 },
-            { name: "选项1-3", id: 1.3 }
-          ]
-        },
-        { name: "导航二", id: 2 },
-        { name: "导航三", id: 3 }
-      ]
-    };
-  }
 };
 </script>
 <style lang="scss">
+html,body {
+  height: 100%;
+  background: #0a0b0f;
+  color: #c2c4cd;
+}
+html,
+body,
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #c2c4cd;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: #c2c4cd;
+  height: 100%;
 }
 
 #nav {
@@ -59,5 +52,11 @@ export default {
       color: #42b983;
     }
   }
+}
+.view {
+  margin-left: 179px;
+  height: 100%;
+  background: #12141b;
+  color: #c2c4cd;
 }
 </style>
